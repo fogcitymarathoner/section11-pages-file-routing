@@ -1,5 +1,38 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Page Routes
+### - Named/Static routes
+```aiignore
+/pages/_not_used.js - /
+/pages/about.js - /about
+```
+### Nested Paths
+```aiignore
+/pages/portfolio/_not_used.js - /portfolio
+/pages/portfolio/list.js = /portfolio/list
+```
+### Dynamic Routing
+```aiignore
+
+/pages/portfolio/[projectId].js - /portfolio/projectId
+```
+### Dynamic Nested Routing
+```aiignore
+/page/clients/[id]/[projectId].js - /clients/clientId/projectId
+```
+### Catch-All Routes
+```aiignore
+/pages/blogs/[...slug] - /blogs/what/ever/you/want
+```
+## Dynamic Routes - Review of vercel-deploy-tst-2-cooking-app/05-onwards-foodies-starting-project
+
+```
+/page_or_default.js
+[mealSlug]/page_or_default.js  dynamic routing, meal primary keys
+[[...foldername]]/page_or_default.js catch-all, multiple subpaths tier1/tier2 translate to params { foldername: ['tier1', 'tier2'] }
+@xxxx/page_or_default.js parallel routes, kinda like IFrames
+(.)/page_or_default.js intercepting routes, internally navigated to, in lieu of externally navigated to
+```
 ## Getting Started
 
 First, run the development server:
@@ -12,7 +45,7 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `pages/_not_used.js`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
